@@ -1,0 +1,9 @@
+{
+	"auth": {
+		"cmpe172proj10b656f69": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	}
+}

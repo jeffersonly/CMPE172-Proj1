@@ -1,0 +1,21 @@
+{
+    "local": {
+        "awscloudformation": {
+            "AuthRoleName": "cmpe172proj1-local-20191017193644-authRole",
+            "UnauthRoleArn": "arn:aws:iam::162045688266:role/cmpe172proj1-local-20191017193644-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::162045688266:role/cmpe172proj1-local-20191017193644-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "cmpe172proj1-local-20191017193644-deployment",
+            "UnauthRoleName": "cmpe172proj1-local-20191017193644-unauthRole",
+            "StackName": "cmpe172proj1-local-20191017193644",
+            "StackId": "arn:aws:cloudformation:us-east-1:162045688266:stack/cmpe172proj1-local-20191017193644/21317d80-f150-11e9-baf3-12094f064940"
+        },
+        "categories": {
+            "auth": {
+                "cmpe172proj10b656f69": {
+                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Facebook\",\"client_id\":\"2979639142089073\",\"client_secret\":\"61ec0c6d1849ff4de64b350e5db97ed8\"},{\"ProviderName\":\"Google\",\"client_id\":\"337362068719-0acluf48fssol6tk2g7fsqnnudmndsuf.apps.googleusercontent.com\",\"client_secret\":\"R0lfUrKhuqYzTpsbmClTMYym\"}]"
+                }
+            }
+        }
+    }
+}

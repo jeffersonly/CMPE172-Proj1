@@ -1,0 +1,20 @@
+{
+    "appName": "cmpe172proj1",
+    "roleName": "pinpointLambdaRole2fb960dd",
+    "cloudWatchPolicyName": "cloudWatchPolicy2fb960dd",
+    "pinpointPolicyName": "pinpointPolicy2fb960dd",
+    "authPolicyName": "pinpoint_amplify_2fb960dd",
+    "unauthPolicyName": "pinpoint_amplify_2fb960dd",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}

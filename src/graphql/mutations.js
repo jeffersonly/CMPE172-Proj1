@@ -1,33 +1,39 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createProduct = `mutation CreateProduct($input: CreateProductInput!) {
-  createProduct(input: $input) {
+export const createUser = `mutation CreateUser($input: CreateUserInput!) {
+  createUser(input: $input) {
     id
-    name
-    description
-    price
-    image
+    username
+    avatar {
+      bucket
+      region
+      key
+    }
   }
 }
 `;
-export const updateProduct = `mutation UpdateProduct($input: UpdateProductInput!) {
-  updateProduct(input: $input) {
+export const updateUser = `mutation UpdateUser($input: UpdateUserInput!) {
+  updateUser(input: $input) {
     id
-    name
-    description
-    price
-    image
+    username
+    avatar {
+      bucket
+      region
+      key
+    }
   }
 }
 `;
-export const deleteProduct = `mutation DeleteProduct($input: DeleteProductInput!) {
-  deleteProduct(input: $input) {
+export const deleteUser = `mutation DeleteUser($input: DeleteUserInput!) {
+  deleteUser(input: $input) {
     id
-    name
-    description
-    price
-    image
+    username
+    avatar {
+      bucket
+      region
+      key
+    }
   }
 }
 `;

@@ -1,7 +1,11 @@
-type Product @model {
+type User @model {
   id: ID!
-  name: String!
-  description: String
-  price: Int
-  image: String
+  username: String!
+  avatar: S3Object
+}
+
+type S3Object {
+  bucket: String!
+  region: String!
+  key: String!
 }

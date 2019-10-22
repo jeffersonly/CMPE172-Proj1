@@ -1,33 +1,39 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateProduct = `subscription OnCreateProduct {
-  onCreateProduct {
+export const onCreateUser = `subscription OnCreateUser {
+  onCreateUser {
     id
-    name
-    description
-    price
-    image
+    username
+    avatar {
+      bucket
+      region
+      key
+    }
   }
 }
 `;
-export const onUpdateProduct = `subscription OnUpdateProduct {
-  onUpdateProduct {
+export const onUpdateUser = `subscription OnUpdateUser {
+  onUpdateUser {
     id
-    name
-    description
-    price
-    image
+    username
+    avatar {
+      bucket
+      region
+      key
+    }
   }
 }
 `;
-export const onDeleteProduct = `subscription OnDeleteProduct {
-  onDeleteProduct {
+export const onDeleteUser = `subscription OnDeleteUser {
+  onDeleteUser {
     id
-    name
-    description
-    price
-    image
+    username
+    avatar {
+      bucket
+      region
+      key
+    }
   }
 }
 `;

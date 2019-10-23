@@ -114,7 +114,7 @@ class AddItem extends Component {
                         <TextField
                             style={{marginRight: 10}}
                             id="itemPrice"
-                            label="Price"
+                            label="Size (in Bytes)"
                             type="number"
                             onChange={this.handleChange('itemPrice')}
                         />

@@ -74,12 +74,6 @@ class ListItems extends Component {
 
                                     <br/>
 
-                                    <Typography component="p">
-                                        {item.price}
-                                    </Typography>
-
-                                    <br />
-
                                     <Typography component="p"> 
                                         {item.description}
                                     </Typography>

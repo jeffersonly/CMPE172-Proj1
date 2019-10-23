@@ -12,7 +12,6 @@ class EditItem extends Component {
     state = {
         open: false,
         itemName: '',
-        itemPrice: '',
         itemDescription: ''
     };
 
@@ -39,7 +38,6 @@ class EditItem extends Component {
         var itemDetails = {
         id: this.props.currentItem.id,
         name: this.state.itemName || this.props.currentItem.name,
-        price: this.state.itemPrice || this.props.currentItem.price,
         description: this.state.itemDescription || this.props.currentItem.description
         }
         API.graphql(graphqlOperation(mutations.updateItem, {input: itemDetails}));
@@ -48,7 +46,6 @@ class EditItem extends Component {
     render() {
         //variables that hold the current info of the current edited item
         let curItemName = this.props.currentItem.name;
-        let curItemPrice = this.props.currentItem.price;
         let curItemDesc = this.props.currentItem.description;
         return (
             <div style={{display: 'flex', flexWrap: 'wrap'}}>
@@ -70,14 +67,6 @@ class EditItem extends Component {
                             label="Name"
                             type="string"
                             onChange={this.handleChange('itemName')}
-                        />
-                        <TextField
-                            style={{marginRight: 10}}
-                            id="itemPrice"
-                            placeholder={curItemPrice}
-                            label="Price"
-                            type="number"
-                            onChange={this.handleChange('itemPrice')}
                         />
                         <TextField
                             style={{marginTop: 10}}

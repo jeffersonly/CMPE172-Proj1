@@ -13,7 +13,7 @@ class DeleteItem extends Component {
 
     //open up modal to check if user wants to delete
     handleClickOpen = () => {
-        console.log("Item id: " + this.props.currentItem.id);
+        //console.log("Item id: " + this.props.currentItem.id);
         this.setState({ open: true });
     };
 
@@ -26,17 +26,9 @@ class DeleteItem extends Component {
     handleDelete = () => {
         this.setState({ open: false });
         //delete item based on its item id
-        console.log("item id: " + this.props.currentItem.id);
-        var itemDetails = { id: this.props.currentItem.id, avatar: this.props.currentItem.avatar }
-        //console.log("item details: " + itemDetails);
+        var itemDetails = { id: this.props.currentItem.id, }
         //delete item from dynamodb
-        try {
-            API.graphql(graphqlOperation(mutations.deleteItem, {itemDetails}))
-        } catch (err){
-            console.log("failed to delete: " + err);
-        }
-        
-        //this.props.currentItem.id='';
+        API.graphql(graphqlOperation(mutations.deleteItem, { input: itemDetails }))
         //reload window based on item deletion
         //window.location.reload()
     };
@@ -67,4 +59,4 @@ class DeleteItem extends Component {
     }
 }
 
-export default DeleteItem;
+export default DeleteItem; 

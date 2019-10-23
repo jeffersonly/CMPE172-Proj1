@@ -48,6 +48,7 @@ class AddItem extends Component {
 
     //submit new added item button action
     handleSubmit = (e) => {
+        //console.log("e: " + e);
         const { name: fileName, type: mimeType } = this.state.file;
         const key = `${uuid()}${fileName}`;
         const fileUpload = {
@@ -66,7 +67,7 @@ class AddItem extends Component {
         }
 
         //save the file
-        Storage.put(key, this.state.filename, this.state.file, {contentType: mimeType})
+        Storage.put(key, this.state.filename, this.state.file, {contentType: this.state.file.type})
         .then(() => {
             console.log("saved file successfully");
             this.setState({ fileUrl: '', file: '', filename: ''})

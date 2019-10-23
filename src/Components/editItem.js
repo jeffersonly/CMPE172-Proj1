@@ -12,12 +12,24 @@ class EditItem extends Component {
     state = {
         open: false,
         itemName: '',
-        itemDescription: ''
+        itemDescription: '',
+        dateEdited: '',
     };
 
     //open modal for editing item
     handleClickOpen = () => {
         this.setState({ open: true });
+        //get the current date 
+        const currDate = new Date().getDate();
+        const currMonth = new Date().getMonth();
+        const currYear = new Date().getFullYear();
+        const currHour = new Date().getHours();
+        const currMin = new Date().getMinutes();
+        const currSec = new Date().getSeconds();
+        const uploadDate = currMonth + '/' + currDate + '/' + currYear + ' ' + currHour + ':' + currMin + ':' + currSec;
+        this.setState({
+            dateEdited: uploadDate
+        })
     };
 
     //close model for editing item
@@ -36,9 +48,10 @@ class EditItem extends Component {
     handleSubmit = (e) => {
         this.setState({ open: false });
         var itemDetails = {
-        id: this.props.currentItem.id,
-        name: this.state.itemName || this.props.currentItem.name,
-        description: this.state.itemDescription || this.props.currentItem.description
+            id: this.props.currentItem.id,
+            name: this.state.itemName || this.props.currentItem.name,
+            description: this.state.itemDescription || this.props.currentItem.description,
+            dateEdited: this.state.dateEdited
         }
         API.graphql(graphqlOperation(mutations.updateItem, {input: itemDetails}));
     }

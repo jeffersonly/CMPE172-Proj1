@@ -41,7 +41,6 @@ export const onCreateItem = `subscription OnCreateItem {
   onCreateItem {
     id
     name
-    price
     description
     filename
     key
@@ -51,6 +50,9 @@ export const onCreateItem = `subscription OnCreateItem {
       key
     }
     userID
+    dateUploaded
+    dateEdited
+    fileSize
   }
 }
 `;
@@ -58,7 +60,6 @@ export const onUpdateItem = `subscription OnUpdateItem {
   onUpdateItem {
     id
     name
-    price
     description
     filename
     key
@@ -68,6 +69,9 @@ export const onUpdateItem = `subscription OnUpdateItem {
       key
     }
     userID
+    dateUploaded
+    dateEdited
+    fileSize
   }
 }
 `;
@@ -75,7 +79,6 @@ export const onDeleteItem = `subscription OnDeleteItem {
   onDeleteItem {
     id
     name
-    price
     description
     filename
     key
@@ -85,6 +88,9 @@ export const onDeleteItem = `subscription OnDeleteItem {
       key
     }
     userID
+    dateUploaded
+    dateEdited
+    fileSize
   }
 }
 `;

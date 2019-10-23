@@ -29,6 +29,18 @@ const styles = {
     fontWeight: 600,
     fontColor: 'black',
   },
+  dates: {
+    fontSize: 14,
+    fontWeight: 350,
+  },
+  description: {
+    fontSize: 16,
+    fontWeight: 400
+  },
+  span: {
+      fontSize: 14,
+      color: "gray"
+  },
   pos: {
     marginBottom: 12,
   },
@@ -71,10 +83,19 @@ class ListItems extends Component {
                                     <Typography className={classes.title}>
                                         {item.name}
                                     </Typography>
-
+                                    <br/>
+                                    <Typography component="p" color="textSecondary" className={classes.dates}> 
+                                        Upload Date: {item.dateUploaded}
+                                        <br/>
+                                        Edited Date: {item.dateEdited}
+                                        <br/>
+                                        File Size: {item.fileSize} bytes
+                                    </Typography>
                                     <br/>
 
-                                    <Typography component="p"> 
+                                    <Typography component="p" className={classes.description}>
+                                        <span className={classes.span}>Description:</span>
+                                        &nbsp;
                                         {item.description}
                                     </Typography>
 

@@ -41,7 +41,6 @@ export const createItem = `mutation CreateItem($input: CreateItemInput!) {
   createItem(input: $input) {
     id
     name
-    price
     description
     filename
     key
@@ -51,6 +50,9 @@ export const createItem = `mutation CreateItem($input: CreateItemInput!) {
       key
     }
     userID
+    dateUploaded
+    dateEdited
+    fileSize
   }
 }
 `;
@@ -58,7 +60,6 @@ export const updateItem = `mutation UpdateItem($input: UpdateItemInput!) {
   updateItem(input: $input) {
     id
     name
-    price
     description
     filename
     key
@@ -68,6 +69,9 @@ export const updateItem = `mutation UpdateItem($input: UpdateItemInput!) {
       key
     }
     userID
+    dateUploaded
+    dateEdited
+    fileSize
   }
 }
 `;
@@ -75,7 +79,6 @@ export const deleteItem = `mutation DeleteItem($input: DeleteItemInput!) {
   deleteItem(input: $input) {
     id
     name
-    price
     description
     filename
     key
@@ -85,6 +88,9 @@ export const deleteItem = `mutation DeleteItem($input: DeleteItemInput!) {
       key
     }
     userID
+    dateUploaded
+    dateEdited
+    fileSize
   }
 }
 `;

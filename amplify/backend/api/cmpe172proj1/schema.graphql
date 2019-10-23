@@ -7,12 +7,14 @@ type User @model {
 type Item @model {
   id: ID!
   name: String!
-  price: Int
   description: String
   filename: String
   key: String
   avatar: S3Object
   userID: String
+  dateUploaded: String
+  dateEdited: String
+  fileSize: Int
 }
 
 type S3Object {

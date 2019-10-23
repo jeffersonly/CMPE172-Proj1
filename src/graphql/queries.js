@@ -36,7 +36,6 @@ export const getItem = `query GetItem($id: ID!) {
   getItem(id: $id) {
     id
     name
-    price
     description
     filename
     key
@@ -46,6 +45,9 @@ export const getItem = `query GetItem($id: ID!) {
       key
     }
     userID
+    dateUploaded
+    dateEdited
+    fileSize
   }
 }
 `;
@@ -58,7 +60,6 @@ export const listItems = `query ListItems(
     items {
       id
       name
-      price
       description
       filename
       key
@@ -68,6 +69,9 @@ export const listItems = `query ListItems(
         key
       }
       userID
+      dateUploaded
+      dateEdited
+      fileSize
     }
     nextToken
   }

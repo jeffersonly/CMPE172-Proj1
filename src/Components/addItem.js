@@ -22,12 +22,14 @@ class AddItem extends Component {
     state = {
         open: false,
         itemName: '',
-        itemPrice: '',
         itemDescription: '',
         fileUrl: '',
         file: '',
         filename: '',
-        userID: ''
+        userID: '',
+        dateUploaded: '',
+        dateEdited: '',
+        fileSize: '',
     };
     
     //on mount, save the current userid
@@ -47,6 +49,18 @@ class AddItem extends Component {
     //handle opening window model for adding items
     handleClickOpen = () => {
         this.setState({ open: true });
+        //get the current date 
+        const currDate = new Date().getDate();
+        const currMonth = new Date().getMonth();
+        const currYear = new Date().getFullYear();
+        const currHour = new Date().getHours();
+        const currMin = new Date().getMinutes();
+        const currSec = new Date().getSeconds();
+        const uploadDate = currMonth + '/' + currDate + '/' + currYear + ' ' + currHour + ':' + currMin + ':' + currSec;
+        this.setState({
+            dateUploaded: uploadDate,
+            dateEdited: uploadDate
+        })
     };
 
     //handle closing the window model for adding items
@@ -74,12 +88,14 @@ class AddItem extends Component {
 
         var itemDetails = {
             name: this.state.itemName,
-            price: this.state.itemPrice,
             description: this.state.itemDescription,
             filename: this.state.filename,
             key,
             avatar: fileUpload,
-            userID: this.state.userID
+            userID: this.state.userID,
+            dateUploaded: this.state.dateUploaded,
+            dateEdited: this.state.dateEdited,
+            fileSize: this.state.fileSize,
         }
 
         //save the file
@@ -105,6 +121,11 @@ class AddItem extends Component {
             file,
             filename: file.name
         })
+        
+        //get the file size 
+        this.setState({
+            fileSize: file.size
+        })
     }
 
     render() {
@@ -128,13 +149,7 @@ class AddItem extends Component {
                             type="string"
                             onChange={this.handleChange('itemName')}
                         />
-                        <TextField
-                            style={{marginRight: 10}}
-                            id="itemPrice"
-                            label="Size (in Bytes)"
-                            type="number"
-                            onChange={this.handleChange('itemPrice')}
-                        />
+                        <br/><br/>
                         <Input 
                             style={{marginRight: 10}}
                             id="itemFile"

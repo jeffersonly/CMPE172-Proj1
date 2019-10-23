@@ -50,6 +50,7 @@ export const onCreateItem = `subscription OnCreateItem {
       region
       key
     }
+    userID
   }
 }
 `;
@@ -66,6 +67,7 @@ export const onUpdateItem = `subscription OnUpdateItem {
       region
       key
     }
+    userID
   }
 }
 `;
@@ -82,6 +84,7 @@ export const onDeleteItem = `subscription OnDeleteItem {
       region
       key
     }
+    userID
   }
 }
 `;

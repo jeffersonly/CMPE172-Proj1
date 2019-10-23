@@ -7,7 +7,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button';
 
-import { API, graphqlOperation, Storage } from "aws-amplify";
+import { API, graphqlOperation, Storage, Auth } from "aws-amplify";
 import * as mutations from '../graphql/mutations';
 import Input from '@material-ui/core/Input';
 import uuid from 'uuid/v4';
@@ -26,9 +26,24 @@ class AddItem extends Component {
         itemDescription: '',
         fileUrl: '',
         file: '',
-        filename: ''
+        filename: '',
+        userID: ''
     };
     
+    //on mount, save the current userid
+    componentDidMount() {
+        //get user that is uploading file
+        Auth.currentSession()
+        .then(data => {
+            let idToken = data.getIdToken();
+            console.dir(idToken);
+            console.log(idToken.payload["cognito:username"]);
+            this.setState({
+                userID: idToken.payload["cognito:username"]
+            })
+        })
+    }
+
     //handle opening window model for adding items
     handleClickOpen = () => {
         this.setState({ open: true });
@@ -48,7 +63,6 @@ class AddItem extends Component {
 
     //submit new added item button action
     handleSubmit = (e) => {
-        //console.log("e: " + e);
         const { name: fileName, type: mimeType } = this.state.file;
         const key = `${uuid()}${fileName}`;
         const fileUpload = {
@@ -57,13 +71,15 @@ class AddItem extends Component {
             region,
         }
         this.setState({ open: false });
+
         var itemDetails = {
             name: this.state.itemName,
             price: this.state.itemPrice,
             description: this.state.itemDescription,
             filename: this.state.filename,
             key,
-            avatar: fileUpload
+            avatar: fileUpload,
+            userID: this.state.userID
         }
 
         //save the file

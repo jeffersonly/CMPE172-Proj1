@@ -50,6 +50,7 @@ export const createItem = `mutation CreateItem($input: CreateItemInput!) {
       region
       key
     }
+    userID
   }
 }
 `;
@@ -66,6 +67,7 @@ export const updateItem = `mutation UpdateItem($input: UpdateItemInput!) {
       region
       key
     }
+    userID
   }
 }
 `;
@@ -82,6 +84,7 @@ export const deleteItem = `mutation DeleteItem($input: DeleteItemInput!) {
       region
       key
     }
+    userID
   }
 }
 `;

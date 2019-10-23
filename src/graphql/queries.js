@@ -45,6 +45,7 @@ export const getItem = `query GetItem($id: ID!) {
       region
       key
     }
+    userID
   }
 }
 `;
@@ -66,6 +67,7 @@ export const listItems = `query ListItems(
         region
         key
       }
+      userID
     }
     nextToken
   }

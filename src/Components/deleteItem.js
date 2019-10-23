@@ -3,7 +3,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button';
-import { API, graphqlOperation } from "aws-amplify"; //import for talking to dynamodb
+import { API, graphqlOperation, Storage } from "aws-amplify"; //import for talking to dynamodb
 import * as mutations from '../graphql/mutations'; //import all mutations from graphql, used for deleting
 
 class DeleteItem extends Component {
@@ -25,10 +25,14 @@ class DeleteItem extends Component {
     //delete item from dynamodb
     handleDelete = () => {
         this.setState({ open: false });
+       
+        //delete the file from s3
+        Storage.remove(this.props.currentItem.key);
         //delete item based on its item id
         var itemDetails = { id: this.props.currentItem.id, }
         //delete item from dynamodb
         API.graphql(graphqlOperation(mutations.deleteItem, { input: itemDetails }))
+        
         //reload window based on item deletion
         //window.location.reload()
     };

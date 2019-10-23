@@ -12,6 +12,7 @@ type Item @model {
   filename: String
   key: String
   avatar: S3Object
+  userID: String
 }
 
 type S3Object {

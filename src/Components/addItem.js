@@ -67,7 +67,7 @@ class AddItem extends Component {
         }
 
         //save the file
-        Storage.put(key, this.state.filename, this.state.file, {contentType: this.state.file.type})
+        Storage.put(key, this.state.file, {contentType: this.state.file.type})
         .then(() => {
             console.log("saved file successfully");
             this.setState({ fileUrl: '', file: '', filename: ''})

@@ -98,19 +98,20 @@ class AddItem extends Component {
             fileSize: this.state.fileSize,
         }
 
+        //push/create items to dynamodb
+        API.graphql(graphqlOperation(mutations.createItem, { input: itemDetails }));
+
         //save the file
         Storage.put(key, this.state.file, {contentType: this.state.file.type})
         .then(() => {
             console.log("saved file successfully");
             this.setState({ fileUrl: '', file: '', filename: ''})
+            //reload page after adding item
+            window.location.reload();
         })
         .catch(err => {
             console.log("error uploading file: ", err);
         })
-
-        //push/create items to dynamodb
-        API.graphql(graphqlOperation(mutations.createItem, { input: itemDetails }));
-        //window.location.reload();
     }
 
     //handle file upload

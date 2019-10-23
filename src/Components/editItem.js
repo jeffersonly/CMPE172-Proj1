@@ -53,7 +53,11 @@ class EditItem extends Component {
             description: this.state.itemDescription || this.props.currentItem.description,
             dateEdited: this.state.dateEdited
         }
-        API.graphql(graphqlOperation(mutations.updateItem, {input: itemDetails}));
+        //push updates to dynamodb
+        API.graphql(graphqlOperation(mutations.updateItem, {input: itemDetails})).then(() => {
+            //reload page after editing item
+            window.location.reload();
+        });
     }
 
     render() {

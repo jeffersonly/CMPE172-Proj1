@@ -31,10 +31,10 @@ class DeleteItem extends Component {
         //delete item based on its item id
         var itemDetails = { id: this.props.currentItem.id, }
         //delete item from dynamodb
-        API.graphql(graphqlOperation(mutations.deleteItem, { input: itemDetails }))
-        
-        //reload window based on item deletion
-        //window.location.reload()
+        API.graphql(graphqlOperation(mutations.deleteItem, { input: itemDetails })).then(() => {
+            //reload window based on item deletion
+            window.location.reload();
+        })
     };
 
     render() {

@@ -27,15 +27,9 @@ class Home extends Component {
     //check if user is admin
     if(this.state.userID === this.state.adminID) {
       return <div><NavBar/><ListItemsAdmin/></div>;
+    } else {
+      return <div><NavBar /> <ListItemsEdit /> <ListItems /></div>
     }
-
-    return (
-        <div>
-            <NavBar /> 
-            <ListItemsEdit />
-            <ListItems />
-        </div>
-    );
   }
 }
 export default Home;

@@ -9,6 +9,8 @@ import Grid from '@material-ui/core/Grid';
 import { API, graphqlOperation, Auth }  from "aws-amplify";
 import * as queries from '../graphql/queries';
 
+import EditItem from './editItem';
+import DeleteItem from './deleteItem';
 import DownloadItem from './downloadItem';
 
 const styles = {
@@ -56,7 +58,7 @@ const styles = {
   },
 };
 
-class ListItems extends Component {
+class ListItemsEdit extends Component {
     state = {
         items: [],
         userID: '',
@@ -78,12 +80,11 @@ class ListItems extends Component {
     
     //get items from dynamodb 
     getItems = () => {
-        //check to see if user is the one who posted, if they aren't display download/view only
+        //check to see if user is the one who posted, if they aren display CRUD
         API.graphql(graphqlOperation(queries.listItems, {
             filter: {
                 userID: {
-                    ne: this.state.userID
-                    //eq: this.state.userID
+                    eq: this.state.userID
                 }
             }
         }))
@@ -97,7 +98,7 @@ class ListItems extends Component {
         //console.log(items)
         return (
             <div className={classes.root}>
-                <h1 className={classes.titlelabel}>Other Files</h1>
+                <h1 className={classes.titlelabel}>My Files</h1>
                 <Grid container className={classes.root} spacing={16}>
                     {items.map(item => (
                         <Grid key={item.id} item>
@@ -125,7 +126,9 @@ class ListItems extends Component {
                                 </CardContent>
                                     
                                 <CardActions>
+                                    <EditItem currentItem={item} />
                                     <DownloadItem currentItem={item} />
+                                    <DeleteItem currentItem={item} />
                                 </CardActions>
                             </Card>
                         </Grid>
@@ -136,8 +139,8 @@ class ListItems extends Component {
     }
 }
 
-ListItems.propTypes = {
+ListItemsEdit.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ListItems);
+export default withStyles(styles)(ListItemsEdit);

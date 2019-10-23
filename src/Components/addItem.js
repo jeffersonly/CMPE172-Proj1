@@ -38,8 +38,8 @@ class AddItem extends Component {
         Auth.currentSession()
         .then(data => {
             let idToken = data.getIdToken();
-            console.dir(idToken);
-            console.log(idToken.payload["cognito:username"]);
+            //console.dir(idToken);
+            //console.log(idToken.payload["cognito:username"]);
             this.setState({
                 userID: idToken.payload["cognito:username"]
             })

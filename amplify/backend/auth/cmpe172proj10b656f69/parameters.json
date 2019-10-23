@@ -47,7 +47,7 @@
     "useDefault": "defaultSocial",
     "hostedUI": true,
     "dependsOn": [],
-    "hostedUIDomainName": "cmpe172proj1c5d28c08-c5d28c08",
+    "hostedUIDomainName": "cmpe172proj12e2b5ffb-2e2b5ffb",
     "authProvidersUserPool": [
         "Facebook",
         "Google"

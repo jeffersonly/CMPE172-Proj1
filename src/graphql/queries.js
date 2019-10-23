@@ -32,3 +32,42 @@ export const listUsers = `query ListUsers(
   }
 }
 `;
+export const getItem = `query GetItem($id: ID!) {
+  getItem(id: $id) {
+    id
+    name
+    price
+    description
+    filename
+    key
+    avatar {
+      bucket
+      region
+      key
+    }
+  }
+}
+`;
+export const listItems = `query ListItems(
+  $filter: ModelItemFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listItems(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      price
+      description
+      filename
+      key
+      avatar {
+        bucket
+        region
+        key
+      }
+    }
+    nextToken
+  }
+}
+`;

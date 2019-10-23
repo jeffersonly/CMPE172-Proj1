@@ -37,3 +37,51 @@ export const onDeleteUser = `subscription OnDeleteUser {
   }
 }
 `;
+export const onCreateItem = `subscription OnCreateItem {
+  onCreateItem {
+    id
+    name
+    price
+    description
+    filename
+    key
+    avatar {
+      bucket
+      region
+      key
+    }
+  }
+}
+`;
+export const onUpdateItem = `subscription OnUpdateItem {
+  onUpdateItem {
+    id
+    name
+    price
+    description
+    filename
+    key
+    avatar {
+      bucket
+      region
+      key
+    }
+  }
+}
+`;
+export const onDeleteItem = `subscription OnDeleteItem {
+  onDeleteItem {
+    id
+    name
+    price
+    description
+    filename
+    key
+    avatar {
+      bucket
+      region
+      key
+    }
+  }
+}
+`;

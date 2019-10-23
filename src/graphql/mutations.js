@@ -37,3 +37,51 @@ export const deleteUser = `mutation DeleteUser($input: DeleteUserInput!) {
   }
 }
 `;
+export const createItem = `mutation CreateItem($input: CreateItemInput!) {
+  createItem(input: $input) {
+    id
+    name
+    price
+    description
+    filename
+    key
+    avatar {
+      bucket
+      region
+      key
+    }
+  }
+}
+`;
+export const updateItem = `mutation UpdateItem($input: UpdateItemInput!) {
+  updateItem(input: $input) {
+    id
+    name
+    price
+    description
+    filename
+    key
+    avatar {
+      bucket
+      region
+      key
+    }
+  }
+}
+`;
+export const deleteItem = `mutation DeleteItem($input: DeleteItemInput!) {
+  deleteItem(input: $input) {
+    id
+    name
+    price
+    description
+    filename
+    key
+    avatar {
+      bucket
+      region
+      key
+    }
+  }
+}
+`;

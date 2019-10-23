@@ -4,6 +4,16 @@ type User @model {
   avatar: S3Object
 }
 
+type Item @model {
+  id: ID!
+  name: String!
+  price: Int
+  description: String
+  filename: String
+  key: String
+  avatar: S3Object
+}
+
 type S3Object {
   bucket: String!
   region: String!

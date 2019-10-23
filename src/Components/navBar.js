@@ -36,7 +36,7 @@ render(){
         <AppBar position="static" color="default">
           <Toolbar>
             <Typography variant="h6" color="inherit" className={classes.grow}>
-              Items
+              Files
             </Typography>
             <AddItem />
             <Button onClick={signOut}>Log Out</Button>

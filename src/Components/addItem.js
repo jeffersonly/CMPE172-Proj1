@@ -29,9 +29,6 @@ class AddItem extends Component {
         filename: ''
     };
     
-    componentDidMount() {
-        console.log("file url: " + this.state.fileUrl);
-    }
     //handle opening window model for adding items
     handleClickOpen = () => {
         this.setState({ open: true });
@@ -47,7 +44,6 @@ class AddItem extends Component {
         this.setState({
             [name]: event.target.value,
         });
-        console.log("Name: " + this.state.itemName + " Price: £" + this.state.itemPrice + " Description:" + this.state.itemDescription);
     };
 
     //submit new added item button action
@@ -68,8 +64,7 @@ class AddItem extends Component {
             key,
             avatar: fileUpload
         }
-        console.log("file url: " + this.state.fileUrl);
-        console.log("filename: " + this.state.filename);
+
         //save the file
         Storage.put(key, this.state.filename, this.state.file, {contentType: mimeType})
         .then(() => {

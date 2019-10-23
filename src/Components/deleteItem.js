@@ -26,11 +26,19 @@ class DeleteItem extends Component {
     handleDelete = () => {
         this.setState({ open: false });
         //delete item based on its item id
-        var itemDetails = { id: this.props.currentItem.id, }
+        console.log("item id: " + this.props.currentItem.id);
+        var itemDetails = { id: this.props.currentItem.id, avatar: this.props.currentItem.avatar }
+        //console.log("item details: " + itemDetails);
         //delete item from dynamodb
-        API.graphql(graphqlOperation(mutations.deleteItem, { input: itemDetails }))
+        try {
+            API.graphql(graphqlOperation(mutations.deleteItem, {itemDetails}))
+        } catch (err){
+            console.log("failed to delete: " + err);
+        }
+        
+        //this.props.currentItem.id='';
         //reload window based on item deletion
-        window.location.reload()
+        //window.location.reload()
     };
 
     render() {

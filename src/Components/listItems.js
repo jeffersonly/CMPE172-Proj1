@@ -11,6 +11,7 @@ import * as queries from '../graphql/queries';
 
 import EditItem from './editItem';
 import DeleteItem from './deleteItem';
+import DownloadItem from './downloadItem';
 
 const styles = {
   card: {
@@ -87,6 +88,7 @@ class ListItems extends Component {
                                     
                                 <CardActions>
                                     <EditItem currentItem={item} />
+                                    <DownloadItem currentItem={item} />
                                     <DeleteItem currentItem={item} />
                                 </CardActions>
                             </Card>

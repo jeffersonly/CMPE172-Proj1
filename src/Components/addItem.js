@@ -78,7 +78,7 @@ class AddItem extends Component {
 
         //push/create items to dynamodb
         API.graphql(graphqlOperation(mutations.createItem, { input: itemDetails }));
-        window.location.reload();
+        //window.location.reload();
     }
 
     //handle file upload

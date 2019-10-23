@@ -30,7 +30,7 @@ class DeleteItem extends Component {
         //delete item from dynamodb
         API.graphql(graphqlOperation(mutations.deleteItem, { input: itemDetails }))
         //reload window based on item deletion
-        window.location.reload()
+        //window.location.reload()
     };
 
     render() {

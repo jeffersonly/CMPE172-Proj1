@@ -26,15 +26,17 @@ class DeleteItem extends Component {
     handleDelete = () => {
         this.setState({ open: false });
        
-        //delete the file from s3
-        Storage.remove(this.props.currentItem.key);
+        
         //delete item based on its item id
         var itemDetails = { id: this.props.currentItem.id, }
-        //delete item from dynamodb
-        API.graphql(graphqlOperation(mutations.deleteItem, { input: itemDetails })).then(() => {
-            //reload window based on item deletion
-            window.location.reload();
-        })
+        //delete the file from s3
+        Storage.remove(this.props.currentItem.key).then(() => {
+            //delete item from dynamodb
+            API.graphql(graphqlOperation(mutations.deleteItem, { input: itemDetails })).then(() => {
+                //reload window based on item deletion
+                window.location.reload();
+            })
+        }); 
     };
 
     render() {

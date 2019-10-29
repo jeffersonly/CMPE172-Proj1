@@ -1,68 +1,46 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Enterprise Software Project - A Mini Dropbox
+This project is similar to dropbox and was developed as a project for my Enterprise Software class. It leverages AWS services such as (AWS Amplify, Cloudfront, Cognito, S3, etc). 
 
-## Available Scripts
+## Application Functionality
+The application has CRUD (Create, Read, Update, Delete) as well as file upload/download functionality, however there are restrictions based on users. 
 
-In the project directory, you can run:
+Administrators are allowed to access full CRUD functionality for all posts, meanwhile, users are only allowed full CRUD functionality for posts that they created. Users that did not create the posting can only view other users posts (unable to edit or delete).
 
-### `npm start`
+Basically, the application allows users to create an account and then sign in. Once signed in, users can upload/create files. Users are also able to view posts that other users have created and download files associated to those posts. 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Here is a link to the demo of the application: 
+* Click [here](https://www.youtube.com/watch?v=lakSZJE-Wg0)
+or copy and paste this link into your browser: 
+<br/>
+https://www.youtube.com/watch?v=lakSZJE-Wg0
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Here is the link to the link to the application:
+* Click [here](https://d3rprkps2q5szo.cloudfront.net)
+or copy and paste this link into your browser: 
+<br/>
+https://d3rprkps2q5szo.cloudfront.net
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used
+1. AWS Amplify
+    * Amplify is a framework used for quick development of applications (primarily mobile, but web as well). It can be used to quickly set up authentication, analytics, etc with a few commands and allows developers to easily intergrate these features into their applications.
+    * For my application, we used amplify for authentication, storage, API, and hosting. We also use amplify to handle the login and registering of users. The application is hosted using AWS Amplify and can be found [here](https://d3rprkps2q5szo.cloudfront.net).
+2. AWS Cognito
+    * Cognito is an Amazon service that provides user pools, and works directly with Amplify. 
+    * Cognito uses user pools to register users and can set up custom authentication, oauth, email verification features, and specifications for account creation.
+    * The application uses Cognito for authentication and login/signin, paired with Amplify.
+3. AWS DynamoDB
+    * DynamoDB is a noSQL database offered by Amazon that allows us to store postings that users create. 
+4. AWS S3
+    * S3 storage is a storage service that allows us to store files that users upload along with their postings.
+5. AWS Cloudfront
+    * Cloudfront is a delivery network that allows for quicker file transfer to cut back on waiting/loading times and balance traffic better based on where the user is located.
+6. React.js
+    * React.js is a front end framework that is used to create the interactive UI, displaying information and interactivity within the website.
+7. Material-UI
+    * Material UI is a react based library that allows us to quickly build displays using premade react components such as cards, buttons, etc. We can then use these components in our application for a quick and aesthetic user interface.
+8. GraphQL
+    * GraphQL is a query language for APIs that we used to communicate with DynamoDB. It's used for querying our DynamoDB database for information as well as CRUD functionality for things being stored to DynamoDB.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Recreating the Application
+In order to run/setup the application on your local host, you must set up the Amplify services. First, you should clone this repo onto your local computer. Then create all the aws services. This includes setting up the aws-exports.js file as well the oauth access keys for google and facebook oauth. Basically, you have to set up all the AWS services including, but not limited to the Amplify auth, Amplify API , Amplify Storage, Amplify Analytics, and Amplify Hosting. 

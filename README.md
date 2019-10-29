@@ -11,13 +11,11 @@ Basically, the application allows users to create an account and then sign in. O
 Here is a link to the demo of the application: 
 * Click [here](https://www.youtube.com/watch?v=lakSZJE-Wg0)
 or copy and paste this link into your browser: 
-<br/>
 https://www.youtube.com/watch?v=lakSZJE-Wg0
-
+<br/><br/>
 Here is the link to the link to the application:
 * Click [here](https://d3rprkps2q5szo.cloudfront.net)
 or copy and paste this link into your browser: 
-<br/>
 https://d3rprkps2q5szo.cloudfront.net
 
 

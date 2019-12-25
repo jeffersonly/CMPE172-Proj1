@@ -1,0 +1,14 @@
+{
+    "trigger": true,
+    "modules": [
+        "verification-link"
+    ],
+    "parentResource": "cmpe172proj10b656f69",
+    "functionName": "cmpe172proj10b656f69CustomMessage",
+    "parentStack": "auth",
+    "triggerEnvs": "[{\"key\":\"RESOURCENAME\",\"value\":\"resourceName\"}]",
+    "triggerTemplate": "CustomMessage.json.ejs",
+    "roleName": "cmpe172proj10b656f69CustomMessage",
+    "skipEdit": true,
+    "resourceName": "cmpe172proj10b656f69CustomMessage"
+}

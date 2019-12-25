@@ -1,0 +1,14 @@
+{
+    "trigger": true,
+    "modules": [
+        "add-to-group"
+    ],
+    "parentResource": "cmpe172proj10b656f69",
+    "functionName": "cmpe172proj10b656f69PostConfirmation",
+    "parentStack": "auth",
+    "triggerEnvs": "[]",
+    "triggerTemplate": "PostConfirmation.json.ejs",
+    "roleName": "cmpe172proj10b656f69PostConfirmation",
+    "skipEdit": true,
+    "resourceName": "cmpe172proj10b656f69PostConfirmation"
+}

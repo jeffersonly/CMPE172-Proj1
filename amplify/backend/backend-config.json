@@ -1,6 +1,6 @@
 {
 	"auth": {
-		"cmpe172proj10b656f69": {
+		"cmpe172proj10eabe605": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
 			"dependsOn": []
@@ -40,6 +40,18 @@
 		"S3AndCloudFront": {
 			"service": "S3AndCloudFront",
 			"providerPlugin": "awscloudformation"
+		}
+	},
+	"function": {
+		"cmpe172proj10b656f69CustomMessage": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true
+		},
+		"cmpe172proj10b656f69PostConfirmation": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true
 		}
 	}
 }
